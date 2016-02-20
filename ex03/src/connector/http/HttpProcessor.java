@@ -1,8 +1,8 @@
 package connector.http;
 
-import org.apache.catalina.connector.http.SocketInputStream;
 import org.apache.catalina.util.StringManager;
 
+import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -67,7 +67,21 @@ public class HttpProcessor {
 
     }
 
+    /**
+     * This method is the simplified version of the similar method in
+     * org.apache.catalina.connector.http.HttpProcessor.
+     * However, this method only parses some "easy" headers, such as
+     * "cookie", "content-length", and "content-type", and ignore other headers.
+     * @param input The input stream connected to our socket
+     *
+     * @exception IOException if an input/output error occurs
+     * @exception ServletException if a parsing error occurs
+     */
     private void parseHeaders(SocketInputStream input) {
+        while (true) {
+            HttpHeader header = new HttpHeader();
+            input.readHeader(header);
+        }
     }
 
     private void parseRequest(SocketInputStream input, OutputStream output) {

@@ -1,7 +1,5 @@
 package connector.http;
 
-import org.apache.catalina.connector.http.SocketInputStream;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.Cookie;
@@ -19,9 +17,11 @@ import java.util.Map;
  * Created by heqi02 on 16/2/20.
  */
 public class HttpRequest implements HttpServletRequest {
-    public HttpRequest(SocketInputStream input) {
 
+    public HttpRequest(SocketInputStream input) {
     }
+
+
 
     @Override
     public String getAuthType() {
