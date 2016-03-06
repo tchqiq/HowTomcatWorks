@@ -34,7 +34,7 @@ public class HttpServer2 {
 
         // Loop waitting for a request
         while (!shutdown) {
-            Socket socket = null;
+            Socket socket = null;;
             InputStream input = null;
             OutputStream output = null;
 
